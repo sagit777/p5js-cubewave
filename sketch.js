@@ -1,29 +1,28 @@
-var cols, rows;
-var scl = 20;
+
+let angle = 0;
+let w = 50;
+
 
 function setup() {
-  createCanvas(600, 600, P2D);
-  var w = 600;
-  var h = 600;
-  cols = w / scl;
-  rows = h / scl;
-  console.log(cols);
-  console.log(rows);
-
+  createCanvas(400, 400, WEBGL);
 
 }
 
 
 function draw() {
   background(0);
+  //translate(width / 2, height / 2);
+  rectMode(CENTER);
 
-  for (var x = 0; x < cols; x++) {
-    for (var y = 0; y < rows; y++) {
-      stroke(255);
-      noFill();
-      rect(x * scl, y * scl, scl, scl);
-    }
+  let offset = 0;
+  for (let x = 0; x < width; x += w) {
+    let a = angle + offset;
+    let h = map(sin(a), -1, 1, 0, 100);
+    fill(255);
+
+    rect(x - width / 2 + w / 2, 0, w - 2, h);
+    offset += 0.1;
   }
 
-
+  angle += 0.1;
 }
