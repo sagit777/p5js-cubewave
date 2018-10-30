@@ -14,6 +14,7 @@ function draw() {
   //translate(width / 2, height / 2);
   rectMode(CENTER);
 
+
   let offset = 0;
   for (let x = 0; x < width; x += w) {
     let a = angle + offset;
